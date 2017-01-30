@@ -4,7 +4,7 @@
 def stringToInt( inString ):
 	try:
 		return int( inString )
-	except:
+	except ValueError:
 		return False
 
 '''	get an int from the user
@@ -15,8 +15,8 @@ def requestConvertableStringInt( inRequestMessage ):
 	while isNotConvertable:
 		userNumAsString = input( inRequestMessage )
 		userNumAsInt = stringToInt( userNumAsString )
-		if( type(userNumAsString) is bool ):
-			break
+		if( type(userNumAsString) is not bool ):
+			return userNumAsInt
 
 '''	get an int from the user
 	if int is not in valid range, or if int is not convertable to an int,
@@ -25,7 +25,9 @@ def requestConvertableStringInt( inRequestMessage ):
 isNotInRange = True;
 while isNotInRange:
 	userNum = requestConvertableStringInt( "Pick a number between 1 and 100..." )
-	if ( 0 <= userNum ) and ( usernum <= 100 ):
+	print( userNum )
+
+	if ( 0 < userNum ) and ( userNum <= 100 ):
 		break
 
 print( userNum )
