@@ -25,8 +25,6 @@ def requestConvertableStringInt( inRequestMessage ):
 isNotInRange = True;
 while isNotInRange:
 	userNum = requestConvertableStringInt( "Pick a number between 1 and 100..." )
-	print( userNum )
-
 	if ( 0 < userNum ) and ( userNum <= 100 ):
 		break
 
